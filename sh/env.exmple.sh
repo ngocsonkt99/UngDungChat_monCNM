@@ -10,6 +10,10 @@
     export APP_HOST=******
     export APP_PORT=******
 
+# Cấu hình SESSION_KEY va SESSION_SECRET
+    export SESSION_KEY=******
+    export SESSION_SECRET=******
+
 # Cấu hình tài khoản email
     export MAIL_USER=******
     export MAIL_PASSWORD=******
