@@ -1,0 +1,26 @@
+<div class="modal fade" id="attachsModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Tất cả các tệp đính kèm trong cuộc trò chuyện</h4>
+            </div>
+            <div class="modal-body" style="display: block;">
+                <ul class="list-attachs">
+                    <li>
+                        <a href="fileExample/Tệp văn bản - tantoan.pdf" 
+                        download="${ item.file.fileName }">
+                            Tệp văn bản - tantoan.pdf
+                        </a>
+                    </li>
+                    <li>
+                        <a href="fileExample/Tệp văn bản - tantoan.docx" 
+                        download="${ item.file.fileName }">
+                            Tệp văn bản - tantoan.docx
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
