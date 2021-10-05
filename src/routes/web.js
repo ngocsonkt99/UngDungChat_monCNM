@@ -45,7 +45,10 @@ let initRouters = (app) => {
   router.put ("/user/update-avatar", auth.checkLoggedIn, user.updateAvatar);
   router.put ("/user/update-info", auth.checkLoggedIn, userValid.updateInfo, user.updateInfo);
   router.put ("/user/update-password", auth.checkLoggedIn, userValid.updatePassword, user.updatePassword);
+  
   router.get ("/contact/find-users/:keyword", auth.checkLoggedIn, contactValid.findUsersContact,  contact.findUsersContact);
+  router.post ("/contact/add-new", auth.checkLoggedIn, contact.addNew);
+  router.delete ("/contact/remove-request-contact", auth.checkLoggedIn, contact.removeRequestContact);
 
   return app.use("/", router);
 };
