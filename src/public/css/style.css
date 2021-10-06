@@ -147,7 +147,6 @@ label:focus,
   border: solid 1px #E4E4E4;
   border-radius: 6px;
   background-color: #fff;
-  margin-top: 12px;
 }
 
 .find-user-top:hover {
@@ -306,7 +305,7 @@ label:focus,
 }
 
 .noti_contact_counter {
-  display: block;
+  display: none;
   position: absolute;
   background: #E1141E;
   color: #FFF;
@@ -336,6 +335,7 @@ label:focus,
 }
 
 .noti_content {
+  position: relative;
   height: 200px;
   background-color: #fff;
   overflow: auto;
@@ -573,7 +573,7 @@ label:focus,
   vertical-align: top;
   margin: 8px 0px 0px -240px;
   height: 35px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   padding-left: 10px;
   font-size: 20px;
 }
