@@ -1,10 +1,12 @@
 import NotificationModel from "./../models/notificationModel";
 import UserModel from "./../models/userModel";
 
-let getNotifications = (currentUserId, limit = 10) => {
+const LIMIT_NUMBER_TAKEN = 10;
+
+let getNotifications = (currentUserId ) => {
     return new Promise(async(resolve, reject) => {
         try {
-            let notifications = await NotificationModel.model.getByUserIdAndLimit(currentUserId, limit);
+            let notifications = await NotificationModel.model.getByUserIdAndLimit(currentUserId, LIMIT_NUMBER_TAKEN);
             
             let getNotifContent = notifications.map(async(notification) => {
                 let sender = await UserModel.findUserById(notification.senderId);
@@ -33,7 +35,27 @@ let countNotifUnread = (currentUserId) => {
 
 };
 
+let readMore = (currentUserId, skipNumberNotification) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+          let newNotifications = await NotificationModel.model.readMore(currentUserId, skipNumberNotification, LIMIT_NUMBER_TAKEN);
+          
+          let getNotifContent = newNotifications.map(async(notification) => {
+            let sender = await UserModel.findUserById(notification.senderId);
+            return NotificationModel.contents.getContent(notification.type, notification.isRead,sender._id,sender.username, sender.avatar);
+        });
+
+           resolve (await Promise.all(getNotifContent));
+
+        } catch (error) {
+            reject(error);
+        }
+    })
+
+};
+
 module.exports = {
     getNotifications: getNotifications,
-    countNotifUnread: countNotifUnread
+    countNotifUnread: countNotifUnread,
+    readMore: readMore,
 }

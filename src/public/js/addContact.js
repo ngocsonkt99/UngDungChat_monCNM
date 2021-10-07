@@ -22,7 +22,7 @@ socket.on("response-add-new-contact", function (user) {
                   <strong>${user.username}</strong> đã gửi cho bạn một lời mời kết bạn!
                   </div>`
     $(".noti_content").prepend(notif);
-    $("ul.list-notifications").append(`<li>${notif}</li>`);
+    $("ul.list-notifications").prepend(`<li>${notif}</li>`);
 
     increaseNumberNotifContact("count-request-contact-received");
     
