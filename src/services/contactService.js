@@ -41,6 +41,7 @@ let addNew = (currentUserId, contactId) => {
     await NotificationModel.model.createNew(notificationItem);
 
     resolve(newContact);
+    
   });
 
 }

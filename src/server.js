@@ -31,7 +31,10 @@ session.config(app);
 configViewEngine(app);
 
 //Enable post data for request
-app.use(bodyParser.urlencoded({ extended: true }));
+ app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
 
 //Enable flash messages
 app.use(connectFlash());

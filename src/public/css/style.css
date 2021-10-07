@@ -281,12 +281,12 @@ label:focus,
   z-index: 999;
 }
 
-#notifications h3 {
+#popup-mark-notif-as-read{
   display: block;
   color: #333;
   background: #FFF;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 12px;
   padding: 8px;
   margin: 0;
   text-align: center;
@@ -336,18 +336,22 @@ label:focus,
 }
 
 .noti_content {
-  position: relative;
+  /* position: relative; */
   height: 300px;
   background-color: #fff;
   overflow: auto;
 }
 
-.noti_content>span {
-  position: absolute;
+.noti_content>div {
+  /* position: absolute; */
   max-width: 95%;
   margin-top: 5px;
   margin-left: 7px;
   color: #333;
+}
+.noti_content>div:hover {
+  cursor: pointer;
+  background-color: #eceff1;
 }
 
 .seeAll {
@@ -1320,4 +1324,41 @@ label:focus,
 
 .display-none{
   display: none;
+}
+#noti_Button:hover {
+  text-decoration: none;
+}
+/* #notificationsModal {
+  width: 500px;
+  margin: auto;
+}
+#notificationsModal h4{
+  text-align: center;
+} */
+.list-notifications li {
+  width: 90%;
+  height: auto;
+  padding: 7px 0px 12px 5px;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.list-notifications li div {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #dfe6e9;
+
+}
+
+.list-notifications li div:hover {
+  cursor: pointer;
+  background-color: #eceff1;
+}
+.mark-notif-as-read {
+  float: right;
+  margin-right: 10px ;
+}
+.read-more-notif {
+  text-align:center;
 }
