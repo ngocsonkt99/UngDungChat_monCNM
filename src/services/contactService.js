@@ -63,6 +63,22 @@ let removeRequestContactSent = (currentUserId, contactId) => {
 
 };
 
+let removeRequestContactReceived = (currentUserId, contactId) => {
+  return new Promise(async (resolve, reject) => {
+   let removeReq = await ContactModel.removeRequestContactReceived(currentUserId, contactId);
+   if( removeReq.result.n === 0 ) {
+     return reject(false);
+   }
+   //remove notification
+  //  let notifTypeAddContact = NotificationModel.types.ADD_CONTACT;
+  //  await NotificationModel.model.removeRequestContactSentNotification(currentUserId, contactId, notifTypeAddContact);
+   
+   resolve(true);
+  
+  });
+
+};
+
 
 let getContacts = (currentUserId) => {
   return new Promise(async (resolve, reject) => {
@@ -163,11 +179,11 @@ module.exports = {
     findUsersContact: findUsersContact,
     addNew: addNew,
     removeRequestContactSent: removeRequestContactSent,
+    removeRequestContactReceived: removeRequestContactReceived,
     getContacts: getContacts,
     getContactsSent: getContactsSent,
     getContactsReceived: getContactsReceived,
     countAllContacts: countAllContacts,
     countAllContactsSent: countAllContactsSent,
     countAllContactsReceived: countAllContactsReceived,
-
 };
