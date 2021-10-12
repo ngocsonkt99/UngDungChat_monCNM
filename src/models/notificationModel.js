@@ -15,7 +15,7 @@ NotificationSchema.statics = {
     return this.create(item);
   },
 
-  removeRequestContactNotification(senderId, receiverId, type) {
+  removeRequestContactSentNotification(senderId, receiverId, type) {
     return this.deleteOne({
       $and:[
         {"senderId": senderId},
@@ -41,10 +41,6 @@ NotificationSchema.statics = {
     }).exec();
   },
 
-  
-  readMore(userId, skip, limit) {
-    return this.find({"receiverId": userId}).sort({"createdAt":-1}).skip(skip).limit(limit).exec();
-  },
 
   markAllAsRead(userId, targetUsers){
     return this.updateMany({
