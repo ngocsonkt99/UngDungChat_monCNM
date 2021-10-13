@@ -41,11 +41,29 @@ ContactSchema.statics = {
     }).exec();
   },
 
+  removeContact (userId, contactId) {
+    return this.deleteOne({
+      $or:[
+        {$and:[
+          {"userId": userId},
+          {"contactId": contactId},
+          {"status": true}
+        ]},
+        {$and:[
+          {"userId": contactId},
+          {"contactId": userId},
+          {"status": true}
+        ]}
+      ]
+    }).exec();
+  },
+
   removeRequestContactSent(userId, contactId) {
     return this.deleteOne({
       $and:[
         {"userId": userId},
-        {"contactId": contactId}
+        {"contactId": contactId},
+        {"status":false}
       ]
     }).exec();
   },
@@ -54,9 +72,20 @@ ContactSchema.statics = {
     return this.deleteOne({
       $and:[
         {"contactId": userId},
-        {"userId": contactId}
+        {"userId": contactId},
+        {"status": false}
       ]
     }).exec();
+  },
+
+  approveRequestContactReceived(userId, contactId) {
+    return this.update({
+      $and:[
+        {"contactId": userId},
+        {"userId": contactId},
+        {"status": false}
+      ]
+    },{"status": true}).exec();
   },
 
   getContacts(userId, limit) {

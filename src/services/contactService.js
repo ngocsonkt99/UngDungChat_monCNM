@@ -47,6 +47,17 @@ let addNew = (currentUserId, contactId) => {
 
 };
 
+let removeContact = (currentUserId, contactId) => {
+  return new Promise(async (resolve, reject) => {
+    let removeContact = await ContactModel.removeContact(currentUserId, contactId);
+    if( removeContact.result.n === 0 ) {
+      return reject(false);
+    }
+      
+    resolve(true);
+  })
+};
+
 let removeRequestContactSent = (currentUserId, contactId) => {
   return new Promise(async (resolve, reject) => {
    let removeReq = await ContactModel.removeRequestContactSent(currentUserId, contactId);
@@ -72,6 +83,26 @@ let removeRequestContactReceived = (currentUserId, contactId) => {
    //remove notification
   //  let notifTypeAddContact = NotificationModel.types.ADD_CONTACT;
   //  await NotificationModel.model.removeRequestContactSentNotification(currentUserId, contactId, notifTypeAddContact);
+   
+   resolve(true);
+  
+  });
+
+};
+
+let approveRequestContactReceived = (currentUserId, contactId) => {
+  return new Promise(async (resolve, reject) => {
+   let approveReq = await ContactModel.approveRequestContactReceived(currentUserId, contactId);
+   if( approveReq.nModified === 0 ) {
+     return reject(false);
+   }
+   //create notification
+   let notificationItem = {
+    senderId: currentUserId,
+    receiverId: contactId, 
+    type: NotificationModel.types.APPROVE_CONTACT,
+  };
+  await NotificationModel.model.createNew(notificationItem);
    
    resolve(true);
   
@@ -186,4 +217,6 @@ module.exports = {
     countAllContacts: countAllContacts,
     countAllContactsSent: countAllContactsSent,
     countAllContactsReceived: countAllContactsReceived,
+    approveRequestContactReceived: approveRequestContactReceived,
+    removeContact: removeContact,
 };
