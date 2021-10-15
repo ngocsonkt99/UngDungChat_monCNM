@@ -150,4 +150,5 @@ ContactSchema.statics = {
 
 };
 
-module.exports = mongoose.model("contact", ContactSchema);
+// module.exports = mongoose.model("contact", ContactSchema);
+module.exports = mongoose.models.contact || mongoose.model('contact', ContactSchema);

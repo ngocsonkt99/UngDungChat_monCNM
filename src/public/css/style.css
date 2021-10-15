@@ -483,8 +483,8 @@ label:focus,
 }
 
 .active {
-  background-color: #2ECC71;
-  color: #fff;
+    background-color: currentColor;
+    color: #fff;
 }
 
 .modal .active {
@@ -688,7 +688,7 @@ label:focus,
 }
 
 .left a.create-group-chat {
-  display: none;
+  display: block;
   float: left;
   width: 40px;
   height: 40px;
@@ -769,6 +769,7 @@ label:focus,
   white-space: nowrap;
   text-overflow: ellipsis;
   color: #999;
+  font-weight: 600;
 }
 
 .left .people .person.active,
@@ -803,7 +804,7 @@ label:focus,
 .right .top {
   width: 100%;
   height: 8%;
-  padding: 15px 29px;
+  padding: 5px 29px;
   background-color: #eceff1;
 }
 
