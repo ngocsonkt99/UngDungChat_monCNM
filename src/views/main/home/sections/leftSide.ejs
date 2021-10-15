@@ -20,8 +20,13 @@
                                         <img src="images/users/avatar-group.jpg" alt="">
                                     </div>
                                     <span class="name">
-                                        <span class="group-chat-name"></span> 
-                                        <%= conversation.name %>
+                                        <span class="group-chat-name">
+                                            <% if(conversation.name.length >15) { %>
+                                                <%= conversation.name.substr(0,14) %><span>...</span>
+                                            <% } else { %>
+                                                <%= conversation.name %>
+                                            <% }%>
+                                         </span> 
                                     </span>
                                     <span class="time">2 Giờ</span>
                                     <span class="preview">Chào cả nhóm</span>
@@ -35,7 +40,11 @@
                                     <img src="images/users/<%= conversation.avatar %>" alt="">
                                 </div>
                                 <span class="name">
-                                    <%= conversation.username %>
+                                    <% if(conversation.username.length >15) { %>
+                                        <%= conversation.username.substr(0,14) %><span>...</span>
+                                    <% } else { %>
+                                        <%= conversation.username %>
+                                    <% }%>
                                 </span>
                                 <span class="time">1 phút</span>
                                 <span class="preview">Xin chào</span>
@@ -57,7 +66,11 @@
                                     <img src="images/users/<%= conversation.avatar %>" alt="">
                                 </div>
                                 <span class="name">
-                                    <%= conversation.username %>
+                                    <% if(conversation.username.length >15) { %>
+                                        <%= conversation.username.substr(0,14) %><span>...</span>
+                                    <% } else { %>
+                                        <%= conversation.username %>
+                                    <% }%>
                                 </span>
                                 <span class="time">1 phút</span>
                                 <span class="preview">Xin chào</span>
@@ -76,8 +89,13 @@
                                     <img src="images/users/avatar-group.jpg" alt="">
                                 </div>
                                 <span class="name">
-                                    <span class="group-chat-name"></span> 
-                                    <%= conversation.name %>
+                                    <span class="group-chat-name">
+                                        <% if(conversation.name.length >15) { %>
+                                            <%= conversation.name.substr(0,14) %><span>...</span>
+                                        <% } else { %>
+                                            <%= conversation.name %>
+                                        <% }%>
+                                     </span> 
                                 </span>
                                 <span class="time">2 Giờ</span>
                                 <span class="preview">Chào cả nhóm</span>
