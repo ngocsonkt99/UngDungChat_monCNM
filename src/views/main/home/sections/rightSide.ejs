@@ -12,7 +12,7 @@
                     </a>
                 </span>
                 <span class="chat-menu-right">
-                    <a href="#attachsModal" id="show-attachs" data-toggle="modal">
+                    <a href="#attachsModal_<%= conversation._id %>" class="show-attachs" data-toggle="modal">
                         Tệp đính kèm
                         <i class="fas fa-paperclip"></i>
                     </a>
@@ -21,7 +21,7 @@
                     <a href="javascript:void(0)">&nbsp;</a>
                 </span>
                 <span class="chat-menu-right">
-                    <a href="#imagesModal" id="show-images" data-toggle="modal">
+                    <a href="#imagesModal_<%= conversation._id %>" class="show-images" data-toggle="modal">
                         Hình ảnh
                         <i class="fas fa-images"></i>
                     </a>
@@ -85,7 +85,7 @@
                             </a>
                         </span>
                         <span class="chat-menu-right">
-                            <a href="#attachsModal" id="show-attachs" data-toggle="modal">
+                            <a href="#attachsModal_<%= conversation._id %>" class="show-attachs" data-toggle="modal">
                                 Tệp đính kèm
                                 <i class="fas fa-paperclip"></i>
                             </a>
@@ -94,7 +94,7 @@
                             <a href="javascript:void(0)">&nbsp;</a>
                         </span>
                         <span class="chat-menu-right">
-                            <a href="#imagesModal" id="show-images" data-toggle="modal">
+                            <a href="#imagesModal_<%= conversation._id %>" class="show-images" data-toggle="modal">
                                 Hình ảnh
                                 <i class="fas fa-images"></i>
                             </a>

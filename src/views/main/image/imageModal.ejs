@@ -1,4 +1,5 @@
-<div class="modal fade" id="imagesModal" role="dialog">
+<% allConversationWithMessages.forEach(function(conversation, index) { %>
+<div class="modal fade" id="imagesModal_<%= conversation._id %>" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,10 +8,14 @@
             </div>
             <div class="modal-body">
                 <div class="all-images" style="visibility: hidden;">
-                    <img src="images/users/user.jpg">
-                    <img src="images/users/user.jpg">
+                    <% conversation.messages.forEach(function(message){ %>
+                       <% if(message.messageType === "image") { %> 
+                        <img  src="data:<%= message.file.contentType %>; base64, <%= bufferToBase64(message.file.data)  %>  ">
+                        <% } %>
+                    <% }); %>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<% }); %>
