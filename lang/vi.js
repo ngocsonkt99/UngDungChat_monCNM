@@ -9,6 +9,7 @@ export const transValidation = {
     update_address:"Địa chỉ giới hạn trong khoảng 3-30 kí tự",
     update_phone:"Số điện thoại Việt Nam bắt đầu bằng số 0 và giới hạn trong khoảng 10-11 kí tự",
     keyword_find_user:"Lỗi tìm kiếm",
+    // message_text_emoji_incorrect:"Tin nhắn không hợp lệ. Đảm bảo tối thiểu 1 kí tự"
 };
 
 export const transErrors = {
@@ -21,6 +22,7 @@ export const transErrors = {
     avatar_type: "Kiểu file không hợp lệ, chỉ chấp nhận jpg, jpeg, jpeg",
     avatar_size: "Ảnh upload tối đa cho phép là 10MB",
     user_current_password_failed:"Mật khẩu hiện tại không chính xác",
+    conversation_not_found: "Cuộc trò chuyện không tồn tại"
 };
 
 export const transSuccess = {

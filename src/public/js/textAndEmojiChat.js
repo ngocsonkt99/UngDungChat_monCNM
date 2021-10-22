@@ -14,13 +14,15 @@ function textAndEmojiChat(divId){
             };
 
             if($(`#write-chat-${divId}`).hasClass("chat-in-group")){
-                dataTextEmojiForSend.isChatInGroup = true;
+                dataTextEmojiForSend.isChatGroup = true;
             }
            
             $.post("/message/add-new-text-emoji", dataTextEmojiForSend, function(data){
                 //success
+                console.log(data.message);
             }).fail(function(response){
-                //err
+            //    alertify.notify(response.responseText, "error", 7);
+            console.log(response)
             })
         }
     });
