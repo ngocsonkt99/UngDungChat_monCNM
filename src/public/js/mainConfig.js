@@ -159,19 +159,30 @@ const socket = io();
 
   function changeScreenChat(){
     $(".room-chat").unbind("click").on("click", function(){
+      let divId = $(this).find("li").data("chat");
+
       $(".person").removeClass("active");
-      $(this).find("li").addClass("active");
+      $(`.person[data-chat= ${divId} ]`).addClass("active");
 
       $(this).tab("show");
 
       // cấu hình thanh cuộn box chat rightSide.ejs
-      let divId = $(this).find("li").data("chat");
+      
       nineScrollRight(divId);
 
       // Bật emoji, tham số truyền vào là id của box nhập nội dung tin nhắn
       enableEmojioneArea(divId);
-    })
+    });
   }
+
+  function convertEmoji (){
+      $(".convert-emoji").each(function() {
+          var original = $(this).html();
+    
+          var converted = joypixels.toImage(original);
+          $(this).html(converted);
+      });
+   }
 
 
   $(document).ready(function() {
@@ -208,7 +219,11 @@ const socket = io();
     //Thay doi man hinh chat
     changeScreenChat();
 
+    //
+     convertEmoji();
     //click vao phan tu dau tien cua cuoc tro chuyen khi load trang
     $("ul.people").find("a")[0].click();
+
+   
   });
   

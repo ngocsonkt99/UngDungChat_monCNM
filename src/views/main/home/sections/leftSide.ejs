@@ -31,7 +31,7 @@
                                     <span class="time">
                                         <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
                                     </span>
-                                    <span class="preview">
+                                    <span class="preview convert-emoji">
                                         <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
                                             <%= lastItemOfArray(conversation.messages).text %>
                                         <% } %>
@@ -61,7 +61,7 @@
                                 <span class="time">
                                     <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
                                 </span>
-                                <span class="preview">
+                                <span class="preview convert-emoji">
                                      <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
                                             <%= lastItemOfArray(conversation.messages).text %>
                                         <% } %>
@@ -99,7 +99,7 @@
                                 <span class="time">
                                     <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
                                 </span>
-                                <span class="preview">
+                                <span class="preview convert-emoji">
                                      <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
                                             <%= lastItemOfArray(conversation.messages).text %>
                                         <% } %>
@@ -140,7 +140,7 @@
                                 <span class="time">
                                     <%= convertTimestampToHumanTime(lastItemOfArray(conversation.messages).createdAt) %>
                                 </span>
-                                <span class="preview">
+                                <span class="preview convert-emoji">
                                      <% if (lastItemOfArray(conversation.messages).messageType === "text") { %>
                                             <%= lastItemOfArray(conversation.messages).text %>
                                         <% } %>
