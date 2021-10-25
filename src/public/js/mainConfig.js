@@ -178,8 +178,7 @@ const socket = io();
   function convertEmoji (){
       $(".convert-emoji").each(function() {
           var original = $(this).html();
-    
-          var converted = joypixels.toImage(original);
+          var converted = emojione.toImage(original);
           $(this).html(converted);
       });
    }

@@ -1090,7 +1090,7 @@ label:focus,
 .right .bubble.you {
   float: left;
   color: #fff;
-  background-color: navy;
+  background-color: darkseagreen;
   -ms-flex-item-align: start;
   align-self: flex-start;
   -webkit-animation-name: slideFromLeft;
@@ -1099,7 +1099,7 @@ label:focus,
 
 .right .bubble.you:before {
   left: -3px;
-  background-color: navy;
+  background-color:darkseagreen;
 }
 
 .right .bubble.me {
@@ -1383,3 +1383,7 @@ label:focus,
   height: 100%;
 }
 
+.message-time-real-time {
+  color: #e74c3c !important;
+  font-weight: bold;
+}
