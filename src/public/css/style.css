@@ -33,14 +33,14 @@ body {
 }
 
 .custom-background-btn-primary {
-  background-color: #2ECC71;
-  border-color: #2ECC71;
+  background-color: deepskyblue;
+  border-color: deepskyblue;
 }
 
 .custom-background-btn-primary:hover,
 .custom-background-btn-primary:focus {
-  background-color: #2ECC71 !important;
-  border-color: #2ECC71 !important;
+  background-color: deepskyblue !important;
+  border-color: deepskyblue !important;
 }
 
 .custom-background-btn-reset {
@@ -188,7 +188,7 @@ label:focus,
 .contactPanel {
   max-width: 100%;
   height: auto;
-  /* margin: 5px 0px 0px 5px; */
+  margin: 5px 0px 0px 5px;
   background-color: rgb(236,239,243);
 }
 
@@ -244,15 +244,16 @@ label:focus,
   padding: 0 12px;
   /* min-width: 30px;
   min-height: 30px; */
-  width: 100px;
-  height: 30px;
-  line-height: 26px;
-  font-size: 13px;
+  width: 109px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 16px;
   /* border-color: #2ACC77; */
-  background-color: #2ECC71;
+  background-color: deepskyblue;
   color: #fff;
   fill: #fff;
   margin: 10px 0px 5px 2px;
+  border-radius:20px;
 }
 
 .contactPanel .user-remove-request-contact-sent {
@@ -286,7 +287,7 @@ label:focus,
   color: #333;
   background: #FFF;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 17px;
   padding: 8px;
   margin: 0;
   text-align: center;
@@ -458,19 +459,21 @@ label:focus,
 
 .navbar {
   font-size: 14px;
-  background-color: #F1F1F1;
+  background-color: white;
   border: 1px solid #e6e6e6;
 }
 
 .dropdown-menu {
-  background-color: #333;
+  background-color: white;
 }
 
 .dropdown-menu>li>a {
   width: 100%;
-  color: #9d9d9d;
+  color: black;
   padding: 7px 20px;
   text-align: left !important;
+  height: 50px;
+  font-size:20px;
 }
 
 #myNavbar>ul>li>a>i {
@@ -572,16 +575,16 @@ label:focus,
 .searchBox {
   width: 450px;
   color: black;
-  border: 0;
-  border-radius: 0;
+  border: 1;
+  border-radius: 20px;
   box-shadow: none;
   line-height: normal;
   vertical-align: top;
   margin: 8px 0px 0px -240px;
   height: 35px;
-  /* border-radius: 20px; */
   padding-left: 10px;
-  font-size: 20px;
+  font-size: 18px;
+  border: 2px solid lightskyblue;
 }
 
 .searchBox::placeholder {
@@ -614,7 +617,7 @@ label:focus,
 }
 
 .sidenav {
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   height: 100%;
 }
 
@@ -645,6 +648,7 @@ label:focus,
   border: 1px solid #e6e6e6;
   overflow-x: hidden;
   overflow-y: auto;
+  background-color: white;
 }
 
 .left .top {
@@ -675,7 +679,7 @@ label:focus,
   padding: 0 15px;
   border: 1px solid #555;
   /* background-color: #eceff1; */
-  /* border-radius: 21px; */
+  border-radius: 20px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   outline: none !important;
@@ -695,7 +699,7 @@ label:focus,
   height: 40px;
   margin-left: 10px;
   /* border: 1px solid #2ECC71; */
-  background-color: black;
+  background-color: deepskyblue;
   background-image: url("../images/icons/name-type.png");
   background-repeat: no-repeat;
   background-position: top 11px left 12.5px;
@@ -806,7 +810,8 @@ label:focus,
   width: 100%;
   height: 8%;
   padding: 5px 29px;
-  background-color: #eceff1;
+  /* background-color: #eceff1; */
+  border-bottom: 1px solid #95a5a6;
 }
 
 .right .top span {
@@ -818,6 +823,7 @@ label:focus,
   color: #1a1a1a;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
+  font-size: larger;
 }
 
 .right .top .chat-menu-right a {
@@ -828,9 +834,9 @@ label:focus,
 
 .right .content-chat {
   width: 100%;
-  height: 70%;
+  height: 75%;
   padding: 0 0 4px 0;
-  background-color: #fff;
+  background-color: rgb(236,239,241);
 }
 
 .right .chat {
@@ -852,9 +858,9 @@ label:focus,
   border: none;
 }
 
-#image-chat,
-#attach-chat {
-  display: none;
+.image-chat,
+.attach-chat {
+  display: none !important;
 }
 
 .room-chat:hover,
@@ -871,7 +877,7 @@ label:focus,
 }
 
 .show-image-chat {
-  max-width: 50%;
+  max-width: 70%;
 }
 
 #loader {
@@ -919,11 +925,11 @@ label:focus,
 }
 
 .bubble-image-file {
-  background-color: #FFF !important;
+  background-color: #ECEFF1 !important;
 }
 
 .bubble-image-file:before {
-  background-color: #FFF !important;
+  background-color: #ECEFF1 !important;
 }
 
 .bubble-typing-gif {
@@ -1000,7 +1006,7 @@ label:focus,
   height: 17%;
   /* padding-left: 0px; */
   border: 1px solid #e6e6e6;
-  background-color: #eceff1;
+  background-color: white;
   width: 100%;
   border-radius: 5px;
   /* margin: 0 1% 0 1%; */
@@ -1017,8 +1023,9 @@ label:focus,
   height: 70%;
   padding: 0 10px;
   color: #1a1a1a;
-  border: 0;
-  background-color: #eceff1;
+  border-bottom: 1px solid #95a5a6;
+  border-top: 1px solid #95a5a6;
+  background-color: white;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   outline: none !important;
@@ -1065,7 +1072,7 @@ label:focus,
 .right .bubble {
   max-width: 46%;
   word-wrap: break-word;
-  font-size: 16px;
+  font-size: 20px;
   position: relative;
   display: inline-block;
   clear: both;
@@ -1105,7 +1112,7 @@ label:focus,
 .right .bubble.me {
   float: right;
   color: #1a1a1a;
-  background-color: #E5EFFF;
+  background-color: white;
   -ms-flex-item-align: end;
   align-self: flex-end;
   -webkit-animation-name: slideFromRight;
@@ -1114,7 +1121,7 @@ label:focus,
 
 .right .bubble.me:before {
   right: -3px;
-  background-color: #eceff1;
+  background-color: white;
 }
 
 .right .bubble.me img {
@@ -1189,7 +1196,7 @@ label:focus,
 .find-user-add-to-group {
   margin-left: 10px;
   padding: 2px;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .form-search-to-add {
@@ -1305,7 +1312,7 @@ label:focus,
   border-color: #576574
 }
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: rgb(241,241,241);
+  background-color: white;
   color: black;
 }
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
@@ -1386,4 +1393,15 @@ label:focus,
 .message-time-real-time {
   color: #e74c3c !important;
   font-weight: bold;
+}
+::before {
+  color: deepskyblue;
+}
+button.close {
+  font-size: 30px;
+}
+input, button, select, textarea {
+  font-family: auto;
+  font-size: inherit;
+  line-height: inherit;
 }

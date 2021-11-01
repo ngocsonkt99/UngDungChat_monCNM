@@ -13,9 +13,7 @@ function approveRequestContactReceived(){
                     $(userInfo).find("div.user-remove-request-contact-received").remove();
                     $(userInfo).find("div.contactPanel")
                         .append(`
-                                <div class="user-talk" data-uid="${targetId}">
-                                    Nhắn tin
-                                </div>
+                              
                                 <div class="user-remove-contact action-danger" data-uid="${targetId}">
                                     Xóa kết bạn
                                 </div>
@@ -72,9 +70,7 @@ socket.on("response-approve-request-contact-received", function(user){
                     <div class="user-address">
                         <span>&nbsp ${user.address}</span>
                     </div>
-                    <div class="user-talk" data-uid="<%= user._id %>">
-                        Nhắn tin
-                    </div>
+                   
                     <div class="user-remove-contact action-danger" data-uid="<%= user._id %>">
                         Xóa kết bạn
                     </div>

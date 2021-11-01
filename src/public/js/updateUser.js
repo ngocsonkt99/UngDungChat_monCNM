@@ -168,7 +168,7 @@ function callUpdateUserAvatar(){
         processData: false,
         data: userAvatar,
         success:function (result) {
-            console.log(result)
+           
             $(".user-modal-alert-success").find("span").text(result.message);
             $(".user-modal-alert-success").css("display", "block");
             
