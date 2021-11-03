@@ -35,7 +35,10 @@ function textAndEmojiChat(divId) {
 
                     dataToEmit.groupId = targetId;
                 } else {
-                    messageOfMe.html(convertEmojiMessage);
+                    let senderAvatar = (`<img src="/images/users/${data.message.sender.avatar}" class="avatar-small" title="${data.message.sender.name}"/>`);
+
+                    messageOfMe.html(`${senderAvatar} ${convertEmojiMessage}`);
+                    // messageOfMe.html(convertEmojiMessage);
                     dataToEmit.contactId = targetId;
                 }
 
@@ -76,7 +79,7 @@ $(document).ready(function () {
 
         let divId = "";
         //handle message data to before show
-        let messageOfYou = $(`<div class="bubble you data-mess-id="${response.message._id}"></div>`);
+        let messageOfYou = $(`<div class="bubble you" data-mess-id="${response.message._id}"></div>`);
         messageOfYou.text(response.message.text);
         let convertEmojiMessage = emojione.toImage(messageOfYou.html());
 
@@ -88,7 +91,9 @@ $(document).ready(function () {
             divId = response.currentGroupId;
 
         } else {
-            messageOfYou.html(convertEmojiMessage);
+            let senderAvatar = (`<img src="/images/users/${response.message.sender.avatar}" class="avatar-small" title="${response.message.sender.name}"/>`);
+            messageOfYou.html(`${senderAvatar} ${convertEmojiMessage}`)
+            // messageOfYou.html(convertEmojiMessage);
             divId = response.currentUserId;
         }
 

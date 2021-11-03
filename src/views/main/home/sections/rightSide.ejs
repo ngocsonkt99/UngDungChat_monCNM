@@ -124,12 +124,14 @@
         
                                <% if(message.messageType === "image") { %> 
                                 <div class="bubble <% if(message.senderId == user._id) { %> me <% }else { %> you <% }%> bubble-image-file" data-mess-id="<%= message._id %>">
+                                    <img src="/images/users/<%= message.sender.avatar %>" class="avatar-small" title="<%= message.sender.name %>">
                                     <img  src="data:<%= message.file.contentType %>; base64, <%= bufferToBase64(message.file.data)  %>  " class="show-image-chat">
                                 </div>
                                 <% } %>
         
                                 <% if(message.messageType === "file") { %>  
                                     <div class="bubble <% if(message.senderId == user._id) { %> me <% }else { %> you <% }%> bubble-image-file" data-mess-id="<%= message._id %>">
+                                        <img src="/images/users/<%= message.sender.avatar %>" class="avatar-small" title="<%= message.sender.name %>">
                                         <a href="data:<%= message.file.contentType %>; base64,<%= bufferToBase64(message.file.data)  %>" download="<%= message.file.fileName%>">
                                             <%= message.file.fileName%>
                                         </a>
