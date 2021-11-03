@@ -1,9 +1,3 @@
-function bufferToBase64(buffer) {
-    return btoa(
-     new Uint8Array(buffer)
-            .reduce((data, byte) => data + String.fromCharCode(byte), "")
-    );
-}
 
 function imageChat(divId) {
     $(`#image-chat-${divId}`).unbind("change").on("change", function () {
@@ -139,9 +133,12 @@ $(document).ready(function (){
         });
         $(`.person[data-chat = ${divId}]`).trigger("appChat.moveConversationToThe");
 
-        let imageChatToAddModal= `<img src="data:${response.message.file.contentType}; base64, ${bufferToBase64(response.message.file.data.data)}">`;
+        if(response.currentGroupId !== $("#dropdown-navbar-user").data("uid") ){
 
-        $(`#imagesModal_${divId}`).find("div.all-images").append(imageChatToAddModal);
+            let imageChatToAddModal= `<img src="data:${response.message.file.contentType}; base64, ${bufferToBase64(response.message.file.data.data)}">`;
+    
+            $(`#imagesModal_${divId}`).find("div.all-images").append(imageChatToAddModal);
+        }
 
     });
 });

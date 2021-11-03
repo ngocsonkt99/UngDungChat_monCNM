@@ -182,6 +182,9 @@ const socket = io();
 
       //Bật lắng nghe DOM cho việc chat tin nhắn hình ảnh
       imageChat(divId);
+
+      //bat lang nghe dom cho viec chat tệp
+      attachmentChat(divId);
     });
   }
 
@@ -192,6 +195,13 @@ const socket = io();
           $(this).html(converted);
       });
    }
+
+   function bufferToBase64(buffer) {
+    return btoa(
+     new Uint8Array(buffer)
+            .reduce((data, byte) => data + String.fromCharCode(byte), "")
+    );
+}
 
 
   $(document).ready(function() {

@@ -443,7 +443,7 @@ label:focus,
   background-color: #eceff1;
 }
 
-.list-attachs li {
+.list-attachments li {
   border-bottom: 1px solid #dfe6e9;
   width: 90%;
   height: auto;
@@ -452,7 +452,7 @@ label:focus,
   list-style-type: none;
 }
 
-.list-attachs li:hover {
+.list-attachments li:hover {
   cursor: pointer;
   background-color: #eceff1;
 }
@@ -859,7 +859,7 @@ label:focus,
 }
 
 .image-chat,
-.attach-chat {
+.attachment-chat {
   display: none !important;
 }
 
@@ -916,11 +916,11 @@ label:focus,
   }
 }
 
-.bubble-attach-file {
+.bubble-attachment-file {
   background-color: #ECF0FE !important;
 }
 
-.bubble-attach-file:before {
+.bubble-attachment-file:before {
   background-color: #ECF0FE !important;
 }
 
@@ -1144,12 +1144,15 @@ label:focus,
   float: left;
   border-bottom: 1.5px solid #c8d6e5;
   padding: 5px;
+  background-color: white;
 }
 
 .right .bubble.you a {
   float: right;
   border-bottom: 1.5px solid #c8d6e5;
   padding: 5px;
+  color: brown;
+  background-color: white;
 }
 
 .right .conversation-start {

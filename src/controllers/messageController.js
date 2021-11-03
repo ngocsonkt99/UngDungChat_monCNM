@@ -5,6 +5,7 @@ import { app } from "./../config/app";
 import { transErrors, transSuccess } from "./../../lang/vi";
 import fsExtra from "fs-extra";
 
+//handle text and emoji chat
 let addNewTextEmoji = async(req, res)=>{
     let errorArr = [];
     let validationErrors = validationResult(req);
@@ -38,6 +39,7 @@ let addNewTextEmoji = async(req, res)=>{
     };
 };
 
+//handle image chat
 let storageImageChat = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, app.image_message_directory);
@@ -89,9 +91,60 @@ let addNewImage = (req, res)=>{
         };
     });
    
+};
+
+//handle attachment_chat
+let storageAttachmentChat = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, app. attachment_message_directory);
+    },
+    filename: (req, file, callback) => {
+        let attachmentName = `${file.originalname}`;
+        callback(null, attachmentName);
+    }
+});
+
+let attachmentMessageUploadFile = multer({
+    storage: storageAttachmentChat,
+    limits: { fileSize: app.attachment_message_limit_size }
+}).single("my-attachment-chat");
+
+let addNewAttachment = (req, res)=>{  
+    attachmentMessageUploadFile(req, res, async (error) =>{
+        if (error) {
+            if (error.message) {
+                return res.status(500).send(transErrors.attachment_message_size)
+            }
+            return res.status(500).send(error);
+        }
+        try {
+            let sender = {
+                id: req.user._id,
+                name: req.user.username,
+                avatar: req.user.avatar,
+            }
+            let receiverId = req.body.uid;
+            let messageVal = req.file;
+            let isChatGroup = req.body.isChatGroup;
+            
+            let newMessage = await message.addNewAttachment(sender, receiverId, messageVal, isChatGroup);
+            
+            // remove attachment 
+            await fsExtra.remove(`${app.attachment_message_directory}/${newMessage.file.fileName}`);
+
+            return res.status(200).send({message: newMessage});
+    
+        } catch (error) {
+            //return res.status(500).send(error);
+            console.error(error)
+            
+        };
+    });
+   
 }
 
 module.exports = {
     addNewTextEmoji: addNewTextEmoji,
     addNewImage: addNewImage,
+    addNewAttachment: addNewAttachment,
 }
