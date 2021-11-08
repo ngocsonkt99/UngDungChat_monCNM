@@ -9,7 +9,9 @@ export const transValidation = {
     update_address:"Địa chỉ giới hạn trong khoảng 3-30 kí tự",
     update_phone:"Số điện thoại Việt Nam bắt đầu bằng số 0 và giới hạn trong khoảng 10-11 kí tự",
     keyword_find_user:"Lỗi tìm kiếm",
+    add_new_group_users_incorrect:"Vui lòng chọn bạn bè để thêm vào nhóm ít nhất 2 người",
     // message_text_emoji_incorrect:"Tin nhắn không hợp lệ. Đảm bảo tối thiểu 1 kí tự"
+    add_new_group_name_incorrect: "Vui lòng nhập tên cuộc trò chuyện từ 3 đến 30 kí tự"
 };
 
 export const transErrors = {

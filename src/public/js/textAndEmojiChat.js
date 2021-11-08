@@ -56,12 +56,12 @@ function textAndEmojiChat(divId) {
                 $(`.person[data-chat = ${divId}]`).find("span.preview").html(emojione.toImage(data.message.text));
 
                 //move conversation to the top
-                $(`.person[data-chat = ${divId}]`).on("appChat.moveConversationToTheTop", function () {
+                $(`.person[data-chat = ${divId}]`).on("click.moveConversationToTheTop", function () {
                     let dataToMove = $(this).parent();
                     $(this).closest("ul").prepend(dataToMove);
-                    $(this).off("appChat.moveConversationToTheTop");
+                    $(this).off("click.moveConversationToTheTop");
                 });
-                $(`.person[data-chat = ${divId}]`).trigger("appChat.moveConversationToThe");
+                $(`.person[data-chat = ${divId}]`).click();
 
                 //realtime
                 socket.emit("chat-text-emoji", dataToEmit);
@@ -108,12 +108,13 @@ $(document).ready(function () {
 
         $(`.person[data-chat = ${divId}]`).find("span.preview").html(emojione.toImage(response.message.text));
 
-        $(`.person[data-chat = ${divId}]`).on("appChat.moveConversationToTheTop", function () {
+        $(`.person[data-chat = ${divId}]`).on("click.moveConversationToTheTop", function () {
             let dataToMove = $(this).parent();
             $(this).closest("ul").prepend(dataToMove);
-            $(this).off("appChat.moveConversationToTheTop");
+            $(this).off("click.moveConversationToTheTop");
         });
-        $(`.person[data-chat = ${divId}]`).trigger("appChat.moveConversationToThe");
+        $(`.person[data-chat = ${divId}]`).click();
+
 
     })
 })

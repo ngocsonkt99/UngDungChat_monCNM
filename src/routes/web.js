@@ -1,6 +1,6 @@
 import express from "express";
-import { home, auth, user, contact,notification, message } from "./../controllers/index";
-import { authValid, userValid, contactValid, messageVal } from "./../validation/index";
+import { home, auth, user, contact,notification, message, groupChat } from "./../controllers/index";
+import { authValid, userValid, contactValid, messageVal, groupChatVal } from "./../validation/index";
 import passport from "passport";
 import initPassportLocal from "./../controllers/passportController/local";
 import initPassportFacebook from "./../controllers/passportController/facebook";
@@ -52,7 +52,9 @@ let initRouters = (app) => {
   router.delete ("/contact/remove-request-contact-sent", auth.checkLoggedIn, contact.removeRequestContactSent);
   router.delete ("/contact/remove-request-contact-received", auth.checkLoggedIn, contact.removeRequestContactReceived);
   router.put ("/contact/approve-request-contact-received", auth.checkLoggedIn, contact.approveRequestContactReceived);
+  router.get ("/contact/search-friends/:keyword", auth.checkLoggedIn, contactValid.searchFriends,  contact.searchFriends);
   
+
   router.put ("/notification/mark-all-as-read", auth.checkLoggedIn, notification.markAllAsRead);
 
   router.post("/message/add-new-text-emoji", auth.checkLoggedIn, message.addNewTextEmoji);
@@ -60,6 +62,8 @@ let initRouters = (app) => {
   router.post("/message/add-new-image", auth.checkLoggedIn, message.addNewImage);
 
   router.post("/message/add-new-attachment", auth.checkLoggedIn, message.addNewAttachment);
+
+  router.post("/groupChat/add-new", auth.checkLoggedIn,groupChatVal.addNewGroup, groupChat.addNewGroup);
 
 
   return app.use("/", router);

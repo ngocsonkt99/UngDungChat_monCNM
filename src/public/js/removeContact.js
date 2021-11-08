@@ -26,6 +26,25 @@ function removeContact(){
                     decreaseNumberNotifContact("count-contacts");
                     
                     socket.emit("remove-contact", {contactId: targetId});
+                    
+                    //check active 
+                    let checkActive = $("#all-chat").find(`li[data-chat = ${targetId}]`).hasClass("active");
+
+                    $("#all-chat").find(`ul a[href="#uid_${targetId}"]`).remove();
+                    $("#user-chat").find(`ul a[href="#uid_${targetId}"]`).remove();
+
+                    $("#screen-chat").find(`div#to_${targetId}`).remove();
+
+                    $("body").find(`div#imagesModal_${targetId}`).remove();
+
+                    $("body").find(`div#attachmentsModal_${targetId}`).remove();
+                
+                    //click first conversation 
+                    if(checkActive){
+                        //
+                        $("ul.people").find("a")[0].click();
+
+                    }
                 }            
             }
         });
@@ -40,6 +59,22 @@ socket.on("response-remove-contact", function(user){
     $("#contacts").find(`ul li[data-uid = ${user.id}]`).remove();
     decreaseNumberNotifContact("count-contacts");
 
+    let checkActive = $("#all-chat").find(`li[data-chat = ${user.id}]`).hasClass("active");
+
+    $("#all-chat").find(`ul a[href="#uid_${user.id}"]`).remove();
+    $("#user-chat").find(`ul a[href="#uid_${user.id}"]`).remove();
+
+    $("#screen-chat").find(`div#to_${user.id}`).remove();
+
+    $("body").find(`div#imagesModal_${user.id}`).remove();
+
+    $("body").find(`div#attachmentsModal_${user.id}`).remove();
+
+    if(checkActive){
+        //
+        $("ul.people").find("a")[0].click();
+
+    }
 });
 
 

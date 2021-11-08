@@ -6,6 +6,7 @@ import removeContact from"./contact/removeContact";
 import chatTextEmoji from"./chat/chatTextEmoji";
 import chatImage from"./chat/chatImage";
 import chatAttachment from"./chat/chatAttachment";
+import newGroupChat from"./group/newGroupChat";
 
 let initSockets = (io) => {
     addNewContact(io);
@@ -16,6 +17,7 @@ let initSockets = (io) => {
     chatTextEmoji(io);
     chatImage(io);
     chatAttachment(io);
+    newGroupChat(io);
 };
 
 module.exports = initSockets;

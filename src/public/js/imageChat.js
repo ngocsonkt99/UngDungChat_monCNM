@@ -36,7 +36,7 @@ function imageChat(divId) {
             processData: false,
             data: messageFormData,
             success: function (data) {
-            
+
                 let dataToEmit = {
                     message: data.message,
                 };
@@ -70,18 +70,18 @@ function imageChat(divId) {
                 $(`.person[data-chat = ${divId}]`).find("span.preview").html("Hình ảnh...");
 
                 //move conversation to the top
-                $(`.person[data-chat = ${divId}]`).on("appChat.moveConversationToTheTop", function () {
+                $(`.person[data-chat = ${divId}]`).on("click.moveConversationToTheTop", function () {
                     let dataToMove = $(this).parent();
                     $(this).closest("ul").prepend(dataToMove);
-                    $(this).off("appChat.moveConversationToTheTop");
+                    $(this).off("click.moveConversationToTheTop");
                 });
-                $(`.person[data-chat = ${divId}]`).trigger("appChat.moveConversationToThe");
+                $(`.person[data-chat = ${divId}]`).click();
 
                 //realtime
                 socket.emit("chat-image", dataToEmit);
 
                 //add to modal image
-                let imageChatToAddModal= `<img src="data:${data.message.file.contentType}; base64, ${bufferToBase64(data.message.file.data.data)}" >`;
+                let imageChatToAddModal = `<img src="data:${data.message.file.contentType}; base64, ${bufferToBase64(data.message.file.data.data)}" >`;
 
                 $(`#imagesModal_${divId}`).find("div.all-images").append(imageChatToAddModal);
             },
@@ -92,31 +92,31 @@ function imageChat(divId) {
     });
 }
 
-$(document).ready(function (){
-    socket.on("response-chat-image", function (response){
+$(document).ready(function () {
+    socket.on("response-chat-image", function (response) {
         let divId = "";
-         //handle message data to before show
-         let messageOfYou = $(`<div class="bubble you bubble-image-file" data-mess-id="${response.message._id}"></div>`);
-         messageOfYou.text(response.message.text);
-         
-         let imageChat = ` <img src="data:${response.message.file.contentType}; base64, ${bufferToBase64(response.message.file.data.data)} " class="show-image-chat">`;
+        //handle message data to before show
+        let messageOfYou = $(`<div class="bubble you bubble-image-file" data-mess-id="${response.message._id}"></div>`);
+        messageOfYou.text(response.message.text);
 
-         if (response.currentGroupId) {
-             let senderAvatar = (`<img src="/images/users/${response.message.sender.avatar}" class="avatar-small" title="${response.message.sender.name}"/>`);
- 
-             messageOfYou.html(`${senderAvatar} ${imageChat}`);
- 
-             divId = response.currentGroupId;
- 
-         } else {
+        let imageChat = ` <img src="data:${response.message.file.contentType}; base64, ${bufferToBase64(response.message.file.data.data)} " class="show-image-chat">`;
+
+        if (response.currentGroupId) {
             let senderAvatar = (`<img src="/images/users/${response.message.sender.avatar}" class="avatar-small" title="${response.message.sender.name}"/>`);
- 
+
+            messageOfYou.html(`${senderAvatar} ${imageChat}`);
+
+            divId = response.currentGroupId;
+
+        } else {
+            let senderAvatar = (`<img src="/images/users/${response.message.sender.avatar}" class="avatar-small" title="${response.message.sender.name}"/>`);
+
             messageOfYou.html(`${senderAvatar} ${imageChat}`);
             //  messageOfYou.html(imageChat);
-             divId = response.currentUserId;
-         }
+            divId = response.currentUserId;
+        }
 
-         if (response.currentUserId !== $("#dropdown-navbar-user").data("uid")) {
+        if (response.currentUserId !== $("#dropdown-navbar-user").data("uid")) {
             $(`.right .chat[data-chat = ${divId}]`).append(messageOfYou);
             nineScrollRight(divId);
             $(`.person[data-chat = ${divId}]`).find("span.time").addClass("message-time-real-time");
@@ -126,17 +126,17 @@ $(document).ready(function (){
 
         $(`.person[data-chat = ${divId}]`).find("span.preview").html("Hình ảnh ...");
 
-        $(`.person[data-chat = ${divId}]`).on("appChat.moveConversationToTheTop", function () {
+        $(`.person[data-chat = ${divId}]`).on("click.moveConversationToTheTop", function () {
             let dataToMove = $(this).parent();
             $(this).closest("ul").prepend(dataToMove);
-            $(this).off("appChat.moveConversationToTheTop");
+            $(this).off("click.moveConversationToTheTop");
         });
-        $(`.person[data-chat = ${divId}]`).trigger("appChat.moveConversationToThe");
+        $(`.person[data-chat = ${divId}]`).click();
 
-        if(response.currentGroupId !== $("#dropdown-navbar-user").data("uid") ){
+        if (response.currentGroupId !== $("#dropdown-navbar-user").data("uid")) {
 
-            let imageChatToAddModal= `<img src="data:${response.message.file.contentType}; base64, ${bufferToBase64(response.message.file.data.data)}">`;
-    
+            let imageChatToAddModal = `<img src="data:${response.message.file.contentType}; base64, ${bufferToBase64(response.message.file.data.data)}">`;
+
             $(`#imagesModal_${divId}`).find("div.all-images").append(imageChatToAddModal);
         }
 
