@@ -1151,9 +1151,10 @@ label:focus,
   float: right;
   border-bottom: 1.5px solid #c8d6e5;
   padding: 5px;
-  color: brown;
-  background-color: white;
+  color: white;
+  background-color: #8FBC8F;
 }
+
 
 .right .conversation-start {
   position: relative;
@@ -1263,8 +1264,8 @@ label:focus,
   min-height: 26px;
   line-height: 26px;
   font-size: 13px;
-  border-color: #2ACC77;
-  background-color: #2ACC77;
+  border-color: #00BFFF;
+  background-color: #00BFFF;
   color: #fff;
   fill: #fff;
   margin: 10px 0px 5px 2px;
@@ -1293,14 +1294,16 @@ label:focus,
 }
 
 .list-user-added button#btn-create-group-chat {
-  border-color: #2ACC77;
-  background-color: #2ACC77;
+  border-color: #00BFFF;
+  background-color: #00BFFF;
+  width: 100px;
 }
 
 .list-user-added button#btn-cancel-group-chat {
   border-color: #ff7675;
   background-color: #ff7675;
   margin-left: 5px;
+  width:100px;
 }
 .modal-title {
   text-align: center;

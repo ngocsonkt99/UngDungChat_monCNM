@@ -7,7 +7,9 @@ let ChatGroupSchema = new Schema({
   userAmount: { type: Number, min: 3, max: 100 },
   messageAmount: { type: Number, default: 0 },
   userId: String,
-  members: [{ userId: String}],
+  members: [{ userId: String},
+    {username: String}
+    ],
   createdAt: { type: Number, default: Date.now },
   updatedAt: { type: Number, default: Date.now },
   deletedAt: { type: Number, default: null },

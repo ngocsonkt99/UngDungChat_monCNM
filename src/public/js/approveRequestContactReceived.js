@@ -163,6 +163,7 @@ function approveRequestContactReceived() {
                         </div>
           `;
                     $("body").append(attachmentModalData);
+                    socket.emit("check-status");
 
                     
                     socket.emit("approve-request-contact-received", { contactId: targetId });
@@ -343,6 +344,7 @@ socket.on("response-approve-request-contact-received", function (user) {
          </div>
 `;
      $("body").append(attachmentModalData);
+     socket.emit("check-status");
 
 });
 

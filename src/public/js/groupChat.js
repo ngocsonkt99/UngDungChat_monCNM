@@ -235,7 +235,8 @@ function callCreateGroupChat() {
 
           //step8: Emit new group create
           socket.emit("new-group-created", {groupChat: data.groupChat});
-      })
+          socket.emit("check-status");
+        })
         .fail(function (response) {
           //    alertify.notify(response.responseText, "error", 7);
           console.log(response);
@@ -397,6 +398,7 @@ $(document).ready(function () {
       //step:
       socket.emit("member-received-group-chat", {groupChatId: response.groupChat._id});
    
+      socket.emit("check-status");
   })
 });
 

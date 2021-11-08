@@ -7,6 +7,7 @@ import chatTextEmoji from"./chat/chatTextEmoji";
 import chatImage from"./chat/chatImage";
 import chatAttachment from"./chat/chatAttachment";
 import newGroupChat from"./group/newGroupChat";
+import userOnlineOffline from "./status/userOnlineOffline";
 
 let initSockets = (io) => {
     addNewContact(io);
@@ -18,6 +19,7 @@ let initSockets = (io) => {
     chatImage(io);
     chatAttachment(io);
     newGroupChat(io);
+    userOnlineOffline(io);
 };
 
 module.exports = initSockets;
